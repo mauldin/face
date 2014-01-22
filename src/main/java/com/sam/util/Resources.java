@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.sam.Util;
+package com.sam.util;
 
 import java.util.logging.Logger;
 import javax.enterprise.inject.Produces;
@@ -16,6 +16,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author sam
  */
+
 public class Resources {
 
     @Produces

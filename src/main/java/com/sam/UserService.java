@@ -5,6 +5,8 @@
  */
 package com.sam;
 
+import com.sam.model.Loginuser;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -23,11 +25,11 @@ public class UserService {
     @Inject
     private EntityManager em;
     
-    public LoginUser find(String name, String password) {
+    public Loginuser find(String name, String password) {
         log.info("samster! " + name + " " + password);
-        LoginUser user = null;
+        Loginuser user = null;
         try{
-            user = (LoginUser) em.createNamedQuery("findUserOnInfo")
+            user = (Loginuser) em.createNamedQuery("Loginuser.findUserOnInfo")
                     .setParameter("name", name)
                     .setParameter("password", password)
                     .getSingleResult();
@@ -37,5 +39,10 @@ public class UserService {
         }
         log.info("word em up nigga");
         return user;
+    }
+    
+    public List<Loginuser> findAll() {
+        return em.createNamedQuery("Loginuser.findAll")
+                .getResultList();
     }
 }
